@@ -38,7 +38,7 @@ export const processQuizAnswers = async (session_id, answers) => {
   console.log("inside process quiz answers service");
 
   // Find the user session
-  const userSession = await userSessionRepo.getByUserId(session_id);
+  const userSession = await userSessionRepo.findBySessionId(session_id);
   if (!userSession) {
     throw new NotFoundError("Session not found");
   }
@@ -79,7 +79,7 @@ export const processQuizAnswers = async (session_id, answers) => {
   }
 
   // Update user session with totals and mark as complete
-  await userSessionRepo.updateByUserId(session_id, {
+  await userSessionRepo.findBySessionId(session_id, {
     vata_total: vataTotal,
     pitta_total: pittaTotal,
     kapha_total: kaphaTotal,
@@ -104,7 +104,7 @@ export const processQuizAnswers = async (session_id, answers) => {
 export const getQuizResults = async (session_id) => {
   console.log("inside get quiz results service");
 
-  const userSession = await userSessionRepo.getByUserId(session_id);
+  const userSession = await userSessionRepo.findBySessionId(session_id);
   if (!userSession) {
     throw new NotFoundError("Session not found");
   }

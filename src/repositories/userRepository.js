@@ -11,7 +11,7 @@ class UserRepository extends CrudRepository {
     try {
       return await this.model.findOne({ where: { email } });
     } catch (error) {
-      config.logger.error("Something went wrong in the Crud Repo: find");
+      config.logger.error("Something went wrong in the User Repo: find");
       throw error;
     }
   }
