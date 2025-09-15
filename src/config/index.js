@@ -1,9 +1,11 @@
-import { PORT } from "./serverConfig.js";
+import { CLOUDINARY_API_KEY, CLOUDINARY_NAME, CLOUDINARY_SECRET_KEY, PORT, JWT_SECRET } from "./serverConfig.js";
 import { logger } from "./loggerConfig.js";
-import {JWT_SECRET} from "./serverConfig.js";
 
 export default {
     PORT,
     logger,
-    JWT_SECRET
+    JWT_SECRET,
+    CLOUDINARY_NAME,
+    CLOUDINARY_API_KEY,
+    CLOUDINARY_SECRET_KEY
 }

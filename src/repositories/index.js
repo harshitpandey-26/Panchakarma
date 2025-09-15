@@ -8,6 +8,8 @@ import QuestionOptionRepository from "./questionOptionRepository.js"
 import UserSessionRepository from "./userSessionRepository.js"
 import UserAnswerRepository from "./userAnswerRepository.js"
 
+import MedicalRecordRepository from "./medicalRecordRepository.js"
+
 export default{
     UserRepository,
     PatientRepository,
@@ -16,5 +18,6 @@ export default{
     QuestionOptionRepository,
     QuestionRepository,
     UserAnswerRepository,
-    UserSessionRepository
+    UserSessionRepository,
+    MedicalRecordRepository
 }
