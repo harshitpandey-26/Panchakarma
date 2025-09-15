@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/info', infoController.info);
 router.use('/auth',authRoute);
-// router.use('/quiz',authMiddleware,authorizeRoles("patient"),quizRoute);
-router.use('/quiz',quizRoute);
+router.use('/quiz',authMiddleware,authorizeRoles("patient"),quizRoute);
+// router.use('/quiz',quizRoute);
 
 export default router;

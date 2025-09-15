@@ -9,7 +9,11 @@ export default (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
+      this.belongsTo(models.User, { foreignKey: "user_id", as: "user" }),
+        this.hasMany(models.Medical_Record, {
+          foreignKey: "patient_id",
+          as: "medical_records", // Plural alias for the collection
+        });
     }
   }
   Patient_Profile.init(
@@ -17,7 +21,6 @@ export default (sequelize, DataTypes) => {
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
         references: {
           model: "users",
           key: "id",
@@ -40,7 +43,7 @@ export default (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Patient_Profile",
-      tableName: "patient_profiles", 
+      tableName: "patient_profiles",
       underscored: true,
     }
   );

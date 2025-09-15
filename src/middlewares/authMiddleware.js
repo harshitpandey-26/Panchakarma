@@ -13,6 +13,7 @@ export default function authMiddleware(req, res, next) {
     }
 
     const token = authHeader.split(" ")[1]; 
+    console.log(token);
     if (!token) {
         config.logger.warn("Invalid token format.")
       return res.status(401).json({ message: "Invalid token format" });

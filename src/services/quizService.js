@@ -79,7 +79,7 @@ export const processQuizAnswers = async (session_id, answers) => {
   }
 
   // Update user session with totals and mark as complete
-  await userSessionRepo.findBySessionId(session_id, {
+  await userSessionRepo.updateBySessionId(session_id, {
     vata_total: vataTotal,
     pitta_total: pittaTotal,
     kapha_total: kaphaTotal,
