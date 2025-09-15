@@ -7,6 +7,18 @@ class ClinicRepository extends CrudRepository {
     super(db.Clinic_Profile);
   }
 
+  async getClinicByUserId(user_id){
+    console.log("inside getclinicbyuserid repo");
+    try {
+      return await this.model.findOne({
+        where: { user_id },
+      });
+    } catch (error) {
+      config.logger.error("Something went wrong in the Clinic Repo: getClinicByUserId");
+      throw error;
+    }
+  }
+
   async getClinicByIdAndUserId(id, user_id) {
     console.log("inside getclinicbyuserid repo");
     try {

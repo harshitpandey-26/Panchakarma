@@ -16,6 +16,18 @@ export const getClinicByIdPublic = async (id) => {
   }
 };
 
+// services/clinicService.js
+// Add this method to your clinicService
+
+export const getClinicByUserId = async (userId) => {
+  try {
+    const clinic = await clinicRepo.getClinicByUserId(userId);
+    return clinic;
+  } catch (error) {
+    throw new DatabaseError(error);
+  }
+};
+
 export const getAllClinic = async () => {
   try {
     const allClinic = await clinicRepo.getAll();

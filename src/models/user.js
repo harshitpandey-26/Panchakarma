@@ -51,9 +51,6 @@ export default (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate:{
-          len: [6,100]
-        }
       },
       role: {
         type: DataTypes.ENUM,

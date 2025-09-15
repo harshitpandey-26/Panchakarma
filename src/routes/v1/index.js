@@ -11,6 +11,8 @@ import medicalRecordRoute from './medicalRecordRoute.js';
 
 import clinicRoute from './clinicRoute.js';
 
+import { doctorController } from '../../controllers/index.js';
+
 const router = express.Router();
 
 router.get('/info', infoController.info);
@@ -22,6 +24,10 @@ router.get('/clinics',authMiddleware,clinicController.getAllClinic);
 router.get('/clinics/:id',authMiddleware,clinicController.getClinicByIdPublic);
 
 router.use('/clinic',authMiddleware,authorizeRoles("clinic"),clinicRoute);
+
+// Public route for accepting invitation
+router.post('/invitation/accept/:token', doctorController.acceptInvitation);
+
 
 // router.use('/quiz',quizRoute);
 

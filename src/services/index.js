@@ -5,3 +5,5 @@ export * as quizService from './quizService.js';
 export * as medicalRecordService from './medicalRecordService.js';
 
 export * as clinicService from './clinicService.js';
+
+export * as doctorService from './doctorService.js';

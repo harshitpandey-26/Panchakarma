@@ -1,5 +1,10 @@
 "use strict";
 import { Model } from "sequelize";
+
+import {DOCTOR_STATUS} from '../utils/common/enum.js';
+
+const {PENDING,ACTIVE,INACTIVE} = DOCTOR_STATUS;
+
 export default (sequelize, DataTypes) => {
   class Doctor_Profile extends Model {
     /**
@@ -20,7 +25,7 @@ export default (sequelize, DataTypes) => {
     {
       user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         unique: true,
         references: {
           model: "users",
@@ -30,12 +35,24 @@ export default (sequelize, DataTypes) => {
       },
       clinic_id: {
         type: DataTypes.INTEGER,
-        allowNull: true, 
+        allowNull: true,
         references: {
           model: "clinic_profiles",
           key: "id",
         },
         onDelete: "SET NULL",
+      },
+      invitation_token: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      invitation_sent_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      invitation_accepted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
       specialization: {
         type: DataTypes.STRING,
@@ -51,6 +68,11 @@ export default (sequelize, DataTypes) => {
       },
       bio: {
         type: DataTypes.TEXT,
+      },
+      status: {
+        type: DataTypes.ENUM,
+        values: [PENDING,ACTIVE,INACTIVE],
+        defaultValue: "pending",
       },
     },
     {

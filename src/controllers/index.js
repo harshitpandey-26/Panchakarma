@@ -8,6 +8,8 @@ export * as medicalRecordController from './medicalRecordController.js';
 
 export * as clinicController from './clinicController.js';
 
+export * as doctorController from './doctorController.js';
+
 export default {
     info
 };

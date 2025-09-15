@@ -11,3 +11,9 @@ export const CATEGORY = {
     PITTA: "pitta",
     KAPHA: "kapha"
 }
+
+export const DOCTOR_STATUS = {
+    PENDING: "pending",
+    ACTIVE: "active",
+    INACTIVE: "inactive"
+}
