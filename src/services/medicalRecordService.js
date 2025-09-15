@@ -2,6 +2,7 @@ import repository from "../repositories/index.js";
 import { cloudinary } from "../config/cloudinaryConfig.js";
 import fs from 'fs';
 import path from 'path';
+import { AppError, NotFoundError,DatabaseError } from "../utils/error/app-error.js";
 
 const medicalRecordRepo = new repository.MedicalRecordRepository();
 
@@ -50,7 +51,7 @@ export const uploadMedicalRecord = async (patientData) => {
       }
     }
     
-    throw new Error(`Failed to upload medical record: ${error.message}`);
+    throw new AppError(`Failed to upload medical record: ${error.message}`,400,"UPLOAD FAILED","warn");
   }
 };
 
@@ -60,7 +61,7 @@ export const getMedicalRecords = async (patient_id) => {
     const records = await medicalRecordRepo.findRecordsByPatientId(patient_id);
     return records;
   } catch (error) {
-    throw new Error(`Failed to get medical records: ${error.message}`);
+    throw new DatabaseError(error);
   }
 };
 
@@ -71,7 +72,7 @@ export const deleteMedicalRecord = async (id) => {
     const record = await medicalRecordRepo.findRecordById(id);
 
     if (!record) {
-      throw new Error("Medical record not found");
+      throw new NotFoundError("Medical record not found");
     }
 
     // Need to create cloudinary_public_id columninside medical record then implement this also.
@@ -84,6 +85,6 @@ export const deleteMedicalRecord = async (id) => {
     const deleted = await medicalRecordRepo.deleteMedicalRecord(id);
     return deleted;
   } catch (error) {
-    throw new Error(`Failed to delete medical record: ${error.message}`);
+    throw new DatabaseError(error);
   }
 };

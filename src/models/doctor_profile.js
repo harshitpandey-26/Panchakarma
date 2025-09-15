@@ -9,8 +9,11 @@ export default (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.User,{foreignKey: "user_id",as: "user"})
-
+      this.belongsTo(models.User, { foreignKey: "user_id", as: "user" }),
+        this.hasMany(models.Doctor_Profile, {
+          foreignKey: "clinic_id",
+          as: "doctors",
+        });
     }
   }
   Doctor_Profile.init(
@@ -25,26 +28,35 @@ export default (sequelize, DataTypes) => {
         },
         onDelete: "CASCADE",
       },
+      clinic_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true, 
+        references: {
+          model: "clinic_profiles",
+          key: "id",
+        },
+        onDelete: "SET NULL",
+      },
       specialization: {
-        type:DataTypes.STRING
+        type: DataTypes.STRING,
       },
       qualifications: {
-        type:DataTypes.TEXT
+        type: DataTypes.TEXT,
       },
       years_of_experience: {
-        type:DataTypes.INTEGER
+        type: DataTypes.INTEGER,
       },
-      license_number:  {
-        type:DataTypes.STRING
+      license_number: {
+        type: DataTypes.STRING,
       },
-      bio:  {
-        type:DataTypes.TEXT
+      bio: {
+        type: DataTypes.TEXT,
       },
     },
     {
       sequelize,
       modelName: "Doctor_Profile",
-      tableName: 'doctor_profiles',
+      tableName: "doctor_profiles",
       underscored: true,
     }
   );

@@ -6,6 +6,8 @@ export * as quizController from './quizController.js';
 
 export * as medicalRecordController from './medicalRecordController.js';
 
+export * as clinicController from './clinicController.js';
+
 export default {
     info
 };

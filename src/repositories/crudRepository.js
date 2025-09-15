@@ -17,6 +17,7 @@ class CrudRepository {
   }
 
   async destroy(data) {
+    console.log("inside destroy repo");
     try {
       const response = await this.model.destroy({
         where: {
