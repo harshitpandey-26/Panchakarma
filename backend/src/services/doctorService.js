@@ -2,7 +2,7 @@
 import { DatabaseError, NotFoundError } from "../utils/error/app-error.js";
 import repository from "../repositories/index.js";
 import { generateToken } from "../utils/common/token.js";
-
+import bcrypt from 'bcrypt';
 const doctorRepo = new repository.DoctorRepository();
 const userRepo = new repository.UserRepository();
 
@@ -12,9 +12,12 @@ export const createDoctorForClinic = async (doctorData, clinicId) => {
   try {
     // Generate invitation token
     const invitationToken = generateToken(32);
+
+    const hashedPassword = await bcrypt.hash(doctorData.password,10); 
     
     const doctorProfile = await doctorRepo.create({
       ...doctorData,
+      password:hashedPassword,
       clinic_id: clinicId,
       invitation_token: invitationToken,
       invitation_sent_at: new Date(),
