@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 50px;
+  background: #fefcf5;
+  border-bottom: 3px solid black;
+
+  .nav-line{
+    width: 1150px;
+    height: 10px;
+    background-color: black;
+  }
+
+  img {
+    width: 250px;
+    height: 50px;
+  }
+
+  ul {
+    display: flex;
+    gap: $space-lg;
+    list-style: none;
+    font-size: 1.2rem;
+
+    li {
+      cursor: pointer;
+      color: $text-dark;
+
+      &.cta {
+        background: $primary;
+        padding: 0.4rem 1rem;
+        border-radius: 4px;
+        color: $text-light;
+        font-weight: bold;
+      }
+    }
+  }
+}

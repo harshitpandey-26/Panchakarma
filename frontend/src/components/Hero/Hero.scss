@@ -1,0 +1,27 @@
+@use "sass:color";
+@use "../../styles/variables.scss" as *;
+// @import "../../styles/mixin";
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fefcf5;
+  min-height: 90vh;
+  width: 100%;
+
+  
+
+  .container-1{
+    width: 750px;
+    height: 600px;
+    background-color: red;
+    display: flex;
+
+  }
+  .container-2{
+    width: 400px;
+    height: 600px;
+    background-color: green;
+  }
+
+}
