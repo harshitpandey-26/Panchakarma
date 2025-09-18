@@ -1,4 +1,4 @@
-import styles from "./Navbar.scss";
+import styles from "./Navbar.module.scss";
 import logo from "../../assets/icons/logo_2.png"
 
 function Navbar() {

@@ -1,26 +1,18 @@
 import logo from '../../assets/icons/logo.png';
+import Hero from '../../components/Hero/Hero';
+import LandingPage2 from '../../components/LandingPage2/LandingPage2';
+import LandingPage3 from '../../components/LandingPage3/LandingPage3';
+import LandingPage4 from '../../components/LandingPage4/LandingPage4';
+import Navbar from '../../components/Navbar/Navbar';
 import './HomePage.scss';
 const HomePage = () => {
   return (
     <section className='home'>
-
-        <nav className='nav-container'>
-            <div className='logo'>
-                <img src={logo} alt="logo" />
-            </div>
-            <div className='nav-content'>
-                <a href="">About</a>
-                <a href="">Therapies</a>
-                <a href="">Login</a>
-                <button>Get Started</button>
-            </div>
-        </nav>
-
-        <div></div>
-
-        <div>
-
-        </div>
+    <Navbar/>
+    <Hero/>
+    <LandingPage2/>
+    <LandingPage3/>
+    <LandingPage4/>
 
     </section>
   )

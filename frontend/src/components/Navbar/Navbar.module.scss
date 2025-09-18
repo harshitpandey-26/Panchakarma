@@ -6,13 +6,10 @@
   align-items: center;
   padding: 40px 50px;
   background: #fefcf5;
+  width: 100%;
   border-bottom: 3px solid black;
+  background-color: $main-bg;
 
-  .nav-line{
-    width: 1150px;
-    height: 10px;
-    background-color: black;
-  }
 
   img {
     width: 250px;

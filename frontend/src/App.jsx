@@ -19,13 +19,14 @@
 import "./styles/global.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import HomePage from "./pages/Home/HomePage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+    </Routes>
   );
 }
 
