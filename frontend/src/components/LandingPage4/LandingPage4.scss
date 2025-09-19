@@ -12,7 +12,6 @@
   .left-part {
     width: 60%;
     height: 100%;
-    background-color: aqua;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -20,7 +19,7 @@
     gap: 30px;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
-    background-color: $forest-green;
+    background: radial-gradient(circle at 50% 50%, #4c9a4a, #2e6417);
 
     .logo-img {
       display: flex;

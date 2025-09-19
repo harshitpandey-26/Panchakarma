@@ -23,6 +23,8 @@ import HomePage from "./pages/Home/HomePage";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
 import SignupPage from "./components/SignupPage/SignupPage";
+import QuizPage1 from "./components/QuizPage1/QuizPage1";
+import QuizSummary from "./components/QuizSummary/QuizSummary";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
       <Route path="/" element={<HomePage/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<SignupPage/>}/>
+      <Route path="/quiz" element={<QuizPage1/>}/>
+      <Route path="/quiz-summary" element={<QuizSummary/>}/>
     </Routes>
   );
 }
